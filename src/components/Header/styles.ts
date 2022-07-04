@@ -14,29 +14,31 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100px;
+    width: 90px;
+    margin-left: 10px;
   }
   .logo img {
-    height: 24px;
-    width: 24px;
+    height: 20px;
+    width: 20px;
     background-color: #fff;
     border-radius: 50%;
-    padding: 4px;
+    padding: 3px;
   }
   .logo h1 {
-    font-size: 18px;
+    font-size: 17px;
   }
   .nav {
     display: flex;
     justify-content: space-between;
     list-style: none;
-    width: 15rem;
-    margin-right: 26px;
+    width: 14.5rem;
+    margin-right: 30px;
   }
   .nav a {
     text-decoration: none;
     color: #fff;
     font-size: 12px;
+    font-weight: bold;
   }
   .nav a:active {
     background-color: #0e3f0f;

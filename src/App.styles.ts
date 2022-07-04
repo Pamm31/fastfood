@@ -8,10 +8,7 @@ export const Container = styled.div`
     box-sizing: border-box;
   }
   .app {
-    display: flex;
-    flex-direction: column;
-    justify: center;
-    align-items: center;
-    max-width: 600px;
+    margin: 0 auto;
+    max-width: 1000px;
   }
 `;

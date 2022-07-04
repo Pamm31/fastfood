@@ -4,6 +4,7 @@
 import { Container } from './App.styles';
 import Header from './components/Header';
 import SearchArea from './components/SearchArea';
+import Categories from './components/Categories';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <div className="app">
         <SearchArea />
+        <Categories />
       </div>
     </Container>
   );
