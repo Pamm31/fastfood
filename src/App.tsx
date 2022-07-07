@@ -1,20 +1,44 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/extensions */
 /* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/react-in-jsx-scope */
-// eslint-disable-next-line import/extensions
+import React, { useState } from 'react';
 import { Container } from './App.styles';
-import Header from './components/Header';
-import SearchArea from './components/SearchArea';
 import Categories from './components/Categories';
+import { Theme } from './components/Theme';
+import Show from './components/Show';
+import Products from './components/Data';
 
-function App() {
+function App(): JSX.Element {
+  const [query, setQuery] = useState('');
+
+  const search = (data: any[]) => {
+    return data.filter(
+      (item: { name: string; id: number }) =>
+        item.name.toLowerCase().includes(query) ||
+        item.id.toString().includes(query),
+    );
+  };
   return (
-    <Container>
-      <Header />
-      <div className="app">
-        <SearchArea />
-        <Categories />
-      </div>
-    </Container>
+    <Theme>
+      <Container>
+        <div className="app">
+          <div>
+            <h2>Seja bem vindo!</h2>
+            <input
+              type="text"
+              placeholder="O que você procura?"
+              className="search"
+              onChange={e => setQuery(e.target.value)}
+            />
+          </div>
+          <Categories />
+          <div className="container">
+            <Show data={search(Products)} />
+          </div>
+        </div>
+      </Container>
+    </Theme>
   );
 }
 

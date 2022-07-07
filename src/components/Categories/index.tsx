@@ -1,3 +1,9 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-param-reassign */
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/jsx-filename-extension */
 import { Container } from './styles';
@@ -7,7 +13,7 @@ function Categories() {
     <Container>
       <h2>Categorias</h2>
       <p>Navegue por categoria</p>
-      <div className="categorias">
+      <div className="categorias" id="myBtnContainer">
         <div className="categorias--categoria">
           <img
             src="https://www.freeiconspng.com/uploads/fast-food-png-most-popular-fast-food-snacks-in-your-area-and-most--3.png"
