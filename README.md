@@ -1,5 +1,7 @@
 # Fast Food - Devio
 
+![image](https://user-images.githubusercontent.com/94413939/178080439-85227899-5915-40a6-b16f-c3a83a92d078.png)
+![React-App](https://user-images.githubusercontent.com/94413939/178081197-23b1e978-f774-4ced-b078-f32f2dbe3233.gif)
 
 
 ## Table of contents
