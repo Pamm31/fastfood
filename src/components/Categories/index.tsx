@@ -1,11 +1,11 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-param-reassign */
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-use-before-define */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/jsx-filename-extension */
+import React from 'react';
 import { Container } from './styles';
 
 function Categories() {

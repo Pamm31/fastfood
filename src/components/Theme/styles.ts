@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
   * {
     margin: 0;
     padding: 0;
@@ -19,6 +21,6 @@ export const Page = styled.div`
   .app {
     margin: 0 auto;
     max-width: 1000px;
-    width: 100vw;
+    width: 90vw;
   }
 `;

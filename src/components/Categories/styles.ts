@@ -11,7 +11,7 @@ export const Container = styled.div`
   .categorias {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 2rem 0;
   }
   .categorias--categoria {
@@ -19,8 +19,10 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 13rem;
-    height: 8.5rem;
+    flex-basis: 180px;
+    flex-shrink: 0;
+    width: 180px;
+    height: 130px;
     cursor: pointer;
     border-radius: 10px;
     box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.1);
