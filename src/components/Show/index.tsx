@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/jsx-filename-extension */
-import React, { useState } from 'react';
+import React from 'react';
 import { Container } from './styles';
 
 interface Props {
@@ -15,16 +15,14 @@ interface Props {
   description: string;
 }
 
-function Show({ data }: any) {
-  const [modal, setModal] = useState(false);
+interface IShow {
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
-  const handleClick: React.MouseEventHandler<HTMLDivElement> = e => {
-    e.preventDefault();
-    setModal(!modal);
-  };
+const Show = ({ data }: any, props: IShow) => {
   return data.map((item: Props) => (
     <Container>
-      <div className="products" id={item.category} onClick={handleClick}>
+      <div className="products" id={item.category}>
         <img src={item.img} alt={item.name} width="80" />
         <div className="description">
           <h5>{item.name}</h5>
@@ -39,6 +37,6 @@ function Show({ data }: any) {
       </div>
     </Container>
   ));
-}
+};
 
 export default Show;
