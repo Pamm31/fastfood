@@ -1,4 +1,9 @@
+<div align=center>
+  <img src="https://user-images.githubusercontent.com/94413939/178082416-f860efc5-b8b2-49d2-8860-83ecf50ca2e8.png" alt="Devio" />
+</div>
+
 # Fast Food - Devio
+
 
 ![image](https://user-images.githubusercontent.com/94413939/178080439-85227899-5915-40a6-b16f-c3a83a92d078.png)
 
@@ -24,7 +29,11 @@
 # Demo
 
 ## Live Site
-To see the site click on button who says 
+To see the site click on button who says **Netlify**
+
+<a href="https://fastfood-devio.netlify.app/">
+  <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="site" />
+</a>
 
 \_
 
@@ -45,11 +54,19 @@ git clone git@github.com:Pamm31/fastfood.git
 ```bash
 yarn install
 ```
+or
+```bash
+npm install
+```
 \_
 
 3. Run 
 ```bash
 yarn dev
+```
+or
+```bash
+npm run dev
 ```
 \_
 
