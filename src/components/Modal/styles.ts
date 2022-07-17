@@ -168,13 +168,14 @@ export const Container = styled.div`
     background: none;
   }
   .productSection .info .increment input:read-only {
-    padding-left: 8px;
+    padding: 0;
+    margin: 0;
   }
 
   .productSection .info .increment button {
     border-radius: 50%;
     font-size: 24px;
-    fonte-weight: lighter;
+    font-weight: lighter;
     color: #fff;
     background: #125d13;
     border: none;
@@ -264,6 +265,9 @@ export const Container = styled.div`
     height: 150px;
     border-radius: 5px;
     background: #f4f4f4;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16px;
     resize: none;
   }
 `;

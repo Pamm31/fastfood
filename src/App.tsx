@@ -1,3 +1,7 @@
+/* eslint-disable react/no-children-prop */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable no-lone-blocks */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-param-reassign */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -8,8 +12,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 /* eslint-disable react/jsx-filename-extension */
-import React, { useState, useEffect } from 'react';
-import { produce } from 'immer';
+import React, { useState } from 'react';
 import * as C from './App.styles';
 import { Theme } from './components/Theme';
 import Products from './components/Data';
@@ -22,46 +25,15 @@ interface CartItem {
   id: number;
 }
 
-const ITEMS_STORAGE_KEY = 'fastFood:cartItems';
-
 function App(): JSX.Element {
   const [query, setQuery] = useState('');
   const [modal, setModal] = useState(false);
   const [itemId, setItemId] = useState('');
   const [total, setTotal] = useState(0);
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    const storedCartItems = localStorage.getItem(ITEMS_STORAGE_KEY);
-    if (storedCartItems) {
-      return JSON.parse(storedCartItems);
-    }
-    return [];
-  });
-
-  const cartQuantity = cartItems.length;
-
-  function addItemToCart(item: CartItem) {
-    const itemAlreadyExistsInCart = cartItems.findIndex(
-      cartItem => cartItem.id === item.id,
-    );
-
-    const newCart = produce(cartItems, draft => {
-      if (itemAlreadyExistsInCart < 0) {
-        draft.push(item);
-      } else {
-        draft[itemAlreadyExistsInCart].quantity += item.quantity;
-      }
-    });
-
-    setCartItems(newCart);
-  }
-
-  function cleanCart() {
-    setCartItems([]);
-  }
-
-  useEffect(() => {
-    localStorage.setItem(ITEMS_STORAGE_KEY, JSON.stringify(cartItems));
-  }, [cartItems]);
+  const [cart, setCart] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [cartQuantity, setCartQuantity] = useState(0);
 
   const search = (data: any[]) => {
     return data.filter(
@@ -78,6 +50,16 @@ function App(): JSX.Element {
     setModal(true);
     setItemId(idItem);
     setTotal(total + prd!.price);
+  };
+
+  const increment = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrement = () => {
+    {
+      quantity > 1 && setQuantity(quantity - 1);
+    }
   };
 
   return (
@@ -168,17 +150,23 @@ function App(): JSX.Element {
             ))}
           </div>
 
-          {cartQuantity > 0 && <Cart />}
+          {cartQuantity > 0 && (
+            <Cart item={prd!.name} price={prd!.price} quantity={quantity} />
+          )}
 
           <div className="buttons">
             <button
               type="button"
               className="cancelar"
-              onClick={() => cleanCart()}
+              disabled={!(cartQuantity > 0)}
             >
               Cancelar
             </button>
-            <button type="submit" className="finalizar">
+            <button
+              type="submit"
+              className="finalizar"
+              disabled={!(cartQuantity > 0)}
+            >
               Finalizar Pedido
             </button>
           </div>
@@ -195,9 +183,9 @@ function App(): JSX.Element {
                 <h4>{prd?.name}</h4>
                 <p>{prd?.description}</p>
                 <div className="increment">
-                  <button> - </button>
-                  <input type="number" readOnly />
-                  <button> + </button>
+                  <button onClick={() => decrement()}> - </button>
+                  <input type="number" readOnly value={quantity} />
+                  <button onClick={() => increment()}> + </button>
                 </div>
               </div>
               <h3>

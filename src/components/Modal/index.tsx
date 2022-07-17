@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -13,8 +14,14 @@ interface IModal {
   children: React.ReactNode;
 }
 
+interface cart {
+  item: string;
+  price: number;
+  quantity: number;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function Modal(props: IModal) {
+function Modal(props: IModal, cart: cart) {
   return (
     <Container>
       <div className="overlay" />
@@ -54,7 +61,7 @@ function Modal(props: IModal) {
             placeholder="Adicione uma observação ao pedido"
           />
         </div>
-        <Cart />
+        <Cart item={cart.item} price={cart.price} quantity={cart.quantity} />
         <div className="buttons">
           <button type="button" className="cancelar">
             Cancelar
